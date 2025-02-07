@@ -1,3 +1,5 @@
+local cwd = (...):gsub("pixelA", "")
+
 local renderer = require(cwd .. "pixelARenderer")
 
 local pixel = {}
