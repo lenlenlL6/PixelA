@@ -4,7 +4,7 @@ local renderer = require(cwd .. "pixelARenderer")
 
 local pixel = {}
 
-function pixel.newRenderer(file, delay)
+function pixel.newRenderer(file, delay, playOnStart)
     local width, height
     
     local color = {}
@@ -32,7 +32,7 @@ function pixel.newRenderer(file, delay)
             goto continue
         end
         if startReadData and data[1] ~= "#" then
-            if data[1] == "rectangle" then
+            if data[1] == "box" then
                 for y = data[3] - 1, data[5] - 1 do
                     for x = data[2] - 1, data[4] - 1 do
                         imageData:setPixel(x, y, color[data[6]])
@@ -72,7 +72,7 @@ function pixel.newRenderer(file, delay)
         end
         ::continue::
     end
-    return renderer:new(imageDataL, delay)
+    return renderer:new(imageDataL, delay, playOnStart)
 end
 
 return pixel
