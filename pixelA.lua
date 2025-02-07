@@ -32,7 +32,7 @@ function pixel.newRenderer(file, delay)
             goto continue
         end
         if startReadData and data[1] ~= "#" then
-            if data[1] == "box" then
+            if data[1] == "rectangle" then
                 for y = data[3] - 1, data[5] - 1 do
                     for x = data[2] - 1, data[4] - 1 do
                         imageData:setPixel(x, y, color[data[6]])
