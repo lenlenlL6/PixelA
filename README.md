@@ -35,3 +35,44 @@ line (1, 1, 2, 16, *)
 line (1, 1, 2, 16, g)
 #
 ```
+
+Next, to be able to use it in Love2D, we use the following code:
+```lua
+local pixelA = require("pixelA")
+
+local renderer
+
+function love.load()
+    --[[
+        The second parameter is the interval between two frames in seconds.
+        The third parameter will cause the animation to run immediately when the game starts if true, or vice versa if false.
+    --]]
+    renderer = pixelA.newRenderer("test1.pixela", 1, true)
+end
+
+function love.update(dt)
+    renderer:update(dt)
+end
+
+function love.draw()
+    renderer:draw(100, 100)
+end
+```
+
+## A few functions for the Renderer:
+```lua
+Renderer:gotoFrame(frame)
+```
+This function adjusts the current frame of the animation and resets the *timer*.
+
+
+```lua
+Renderer:pause()
+```
+This function pause an animation, not reset the *timer*.
+
+
+```lua
+Renderer:continue()
+```
+This function continue an animation when its paused.
