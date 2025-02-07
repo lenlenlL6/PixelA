@@ -76,3 +76,6 @@ This function pause an animation, not reset the *timer*.
 Renderer:continue()
 ```
 This function continue an animation when its paused.
+
+## Preview:
+https://github.com/user-attachments/assets/8ba4f5e8-3032-4bdb-92bd-b738d9f6501f
